@@ -1,0 +1,6 @@
+{
+  "baseUrl": "./tests/fixture/baseUrl",
+  "paths": {
+    "jquery": ["node_modules/jquery/dist/jquery"]
+  }
+}
