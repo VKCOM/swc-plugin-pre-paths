@@ -26,5 +26,8 @@
     "swc_plugin_pre_paths.wasm",
     "types.d.ts"
   ],
-  "preferUnplugged": true
+  "preferUnplugged": true,
+  "publishConfig": {
+    "provenance": true
+  }
 }
