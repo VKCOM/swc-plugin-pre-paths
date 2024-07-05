@@ -14,7 +14,7 @@
   },
   "bugs": "https://github.com/VKCOM/swc-plugin-pre-paths/issues",
   "main": "swc_plugin_pre_paths.wasm",
-  "types": "./types.d.ts",
+  "types": "./bindings/types.d.ts",
   "scripts": {
     "prepack": "npm run build",
     "build": "cargo build-wasi --release",
@@ -24,7 +24,7 @@
   },
   "files": [
     "swc_plugin_pre_paths.wasm",
-    "types.d.ts"
+    "bindings/types.d.ts"
   ],
   "preferUnplugged": true,
   "publishConfig": {
