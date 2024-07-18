@@ -64,7 +64,7 @@ impl Injector {
                     from
                 );
 
-                let value = to.get(0).unwrap().clone();
+                let value = to.first().unwrap().clone();
 
                 let pos = from.as_bytes().iter().position(|&c| c == b'*');
                 let pat = if from.contains('*') {
