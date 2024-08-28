@@ -17,6 +17,8 @@ npm i -D swc-plugin-pre-paths
 yarn add -D swc-plugin-pre-paths
 ```
 
+You can check the compatibility of versions on https://plugins.swc.rs/
+
 ## Usage
 
 Via `.swcrc`
