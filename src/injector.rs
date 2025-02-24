@@ -2,7 +2,7 @@ use std::path::PathBuf;
 
 use path_absolutize::*;
 use swc_core::ecma::ast::{ImportDecl, Str};
-use swc_core::ecma::atoms::JsWord;
+use swc_core::ecma::atoms::Atom;
 use swc_core::ecma::visit::{VisitMut, VisitMutWith};
 
 use crate::Config;
@@ -127,7 +127,7 @@ impl VisitMut for Injector {
 
                     let replaced = to.replace('*', extra);
 
-                    let value: JsWord = self.relative_path(replaced).to_str().unwrap().into();
+                    let value: Atom = self.relative_path(replaced).to_str().unwrap().into();
                     n.src = Box::new(Str::from(value));
 
                     return;
@@ -138,7 +138,7 @@ impl VisitMut for Injector {
                         continue;
                     }
 
-                    let value: JsWord = self.relative_path(to.clone()).to_str().unwrap().into();
+                    let value: Atom = self.relative_path(to.clone()).to_str().unwrap().into();
                     n.src = Box::new(Str::from(value));
 
                     return;
