@@ -16,7 +16,7 @@ path-absolutize = { version = "3", features = ["use_unix_paths_on_wasm"] }
 
 serde = "1"
 serde_json = "1"
-swc_core = { version = "15", features = [
+swc_core = { version = "16", features = [
   "ecma_plugin_transform",
   "ecma_parser",
 ] }
