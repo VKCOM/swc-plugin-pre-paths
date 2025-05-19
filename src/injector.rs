@@ -53,16 +53,14 @@ impl Injector {
             .map(|(from, to)| {
                 assert!(
                     !to.is_empty(),
-                    "value of `paths.{}` should not be an empty array",
-                    from,
+                    "value of `paths.{from}` should not be an empty array",
                 );
 
                 assert_eq!(
                     to.len(),
                     1,
-                    "value of `paths.{}` should be an array with one element because \
+                    "value of `paths.{from}` should be an array with one element because \
                      swc-plugin-pre-paths don't support multiple fall back",
-                    from
                 );
 
                 let value = to.first().unwrap().clone();
@@ -70,7 +68,7 @@ impl Injector {
                 let pos = from.as_bytes().iter().position(|&c| c == b'*');
                 let pat = if from.contains('*') {
                     if from.as_bytes().iter().rposition(|&c| c == b'*') != pos {
-                        panic!("`paths.{}` should have only one wildcard", from)
+                        panic!("`paths.{from}` should have only one wildcard")
                     }
 
                     Pattern::Wildcard {
