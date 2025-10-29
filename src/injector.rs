@@ -115,7 +115,12 @@ impl VisitMut for Injector {
         for (from, to) in &self.paths {
             match from {
                 Pattern::Wildcard { prefix } => {
-                    let extra = n.src.value.strip_prefix(prefix);
+                    let extra = n
+                        .src
+                        .value
+                        .as_str()
+                        .expect("non-utf8 string")
+                        .strip_prefix(prefix);
                     let extra = match extra {
                         Some(v) => v,
                         None => {
@@ -132,7 +137,7 @@ impl VisitMut for Injector {
                 }
                 Pattern::Exact(from) => {
                     // Should be exactly matched
-                    if &n.src.value != from {
+                    if n.src.value.as_str().expect("non-utf8 string") != from {
                         continue;
                     }
 
