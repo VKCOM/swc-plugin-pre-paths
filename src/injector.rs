@@ -131,7 +131,7 @@ impl VisitMut for Injector {
                     let replaced = to.replace('*', extra);
 
                     let value: Atom = self.relative_path(replaced).to_str().unwrap().into();
-                    n.src = Box::new(Str::from(value));
+                    *n.src = Str::from(value);
 
                     return;
                 }
@@ -142,7 +142,7 @@ impl VisitMut for Injector {
                     }
 
                     let value: Atom = self.relative_path(to.clone()).to_str().unwrap().into();
-                    n.src = Box::new(Str::from(value));
+                    *n.src = Str::from(value);
 
                     return;
                 }
